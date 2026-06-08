@@ -3,9 +3,9 @@
 ## Overview
 SCOPE (A Unified Framework for Wavelet Denoising) is a parametric wavelet shrinkage framework for signal denoising. It defines shrinkage rules using centered cumulative distribution functions (CDFs), yielding a flexible family of estimators:
 
-$\delta (x;\lambda,k) = x |F^*(\lambda x)|^k$,
+      $\delta (x;\lambda,k) = x |F^*(\lambda x)|^k$,
 
-where $F^*(x) = 2F(x) - 1$, $\lambda > 0$ controls scale, and $k > 0$ controls transition sharpness.
+      where $F^*(x) = 2F(x) - 1$, $\lambda > 0$ controls scale, and $k > 0$ controls transition sharpness.
 
 By varying the underlying CDF (logistic, normal, Laplace, hyperbolic secant, Cauchy, uniform) and tuning the parameters ($\lambda$, k), SCOPE adapts to different signal structures and tail behaviors.
 
@@ -22,7 +22,7 @@ The SCOPE framework defines a parametric family of wavelet shrinkage rules based
 
       where $F^*(x) = 2F(x) - 1$, $\lambda > 0$ controls scale, and $k > 0$ controls transition sharpness.
 
-Different choices of F generate different shrinkage behaviors (logistic, normal, Laplace, hyperbolic secant, Cauchy, uniform).
+      Different choices of F generate different shrinkage behaviors (logistic, normal, Laplace, hyperbolic secant, Cauchy, uniform).
 
 3. **Parameter Calibration:** The shrinkage parameters ($\lambda$, k) can be selected using:
    
