@@ -18,15 +18,17 @@ The SCOPE framework defines a parametric family of wavelet shrinkage rules based
    
 2. **SCOPE Shrinkage Rule:** For each wavelet coefficient x, the SCOPE estimator is defined as
  
-$\delta (x;\lambda,k) = x |F^*(\lambda x)|^k$,
+      $\delta (x;\lambda,k) = x |F^*(\lambda x)|^k$,
 
-where $F^*(x) = 2F(x) - 1$, $\lambda > 0$ controls scale, and $k > 0$ controls transition sharpness.
+      where $F^*(x) = 2F(x) - 1$, $\lambda > 0$ controls scale, and $k > 0$ controls transition sharpness.
 
 Different choices of F generate different shrinkage behaviors (logistic, normal, Laplace, hyperbolic secant, Cauchy, uniform).
 
 3. **Parameter Calibration:** The shrinkage parameters ($\lambda$, k) can be selected using:
-\item **Oracle calibration** (minimizing empirical MSE in simulations)
-\item **Stein’s Unbiased Risk Estimate (SURE)** for data-driven tuning
+   
+- **Oracle calibration** (minimizing empirical MSE in simulations)
+- **Stein’s Unbiased Risk Estimate (SURE)** for data-driven tuning
+  
 The SURE criterion provides an unbiased estimate of the reconstruction risk under Gaussian noise.
 
 4. **Signal Reconstruction:** After applying the shrinkage rule to the detail coefficients, the denoised signal is reconstructed using the inverse discrete wavelet transform (IDWT).
