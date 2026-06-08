@@ -29,6 +29,6 @@ The SCOPE framework defines a parametric family of wavelet shrinkage rules based
 - **Oracle calibration** (minimizing empirical MSE in simulations)
 - **Stein’s Unbiased Risk Estimate (SURE)** for data-driven tuning
   
-The SURE criterion provides an unbiased estimate of the reconstruction risk under Gaussian noise.
+     The SURE criterion provides an unbiased estimate of the reconstruction risk under Gaussian noise.
 
 4. **Signal Reconstruction:** After applying the shrinkage rule to the detail coefficients, the denoised signal is reconstructed using the inverse discrete wavelet transform (IDWT).
