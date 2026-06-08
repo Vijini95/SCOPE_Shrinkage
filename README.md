@@ -32,3 +32,23 @@ The SCOPE framework defines a parametric family of wavelet shrinkage rules based
      The SURE criterion provides an unbiased estimate of the reconstruction risk under Gaussian noise.
 
 4. **Signal Reconstruction:** After applying the shrinkage rule to the detail coefficients, the denoised signal is reconstructed using the inverse discrete wavelet transform (IDWT).
+
+## MATLAB Implementation
+The following steps describe the MATLAB implementation of the SCOPE wavelet shrinkage framework.
+
+1. **Signal Generation:** Test signals (Blocks, Bumps, HeaviSine, Doppler) are generated using **WaveLab850** via **MakeSignal**. Noise is added to achieve a desired signal-to-noise ratio (SNR).
+   
+3. **Wavelet Decomposition:** Each signal is decomposed using a discrete wavelet transform (**dwtr.m**) into multiple resolution levels. The decomposition coefficients are then processed for thresholding.
+
+4. **Oracle parameter calibration:** Computes Monte Carlo average MSE for SCOPE shrinkage under a given ($\lambda$, k), used for oracle calibration in simulations.(**objRuleMSE.m**).
+
+5. **Machine Learning Classification:** Applies the SCOPE shrinkage rule to input coefficients using a centered CDF prototype with parameters ($\lambda$, k) (**ScopeRule.m**).
+
+6. **CDF engine:** Evaluates the CDF of a selected distribution, used to construct the centered CDF in the SCOPE shrinkage rule (**myCDF**).
+
+7. **Signal Reconstruction:** Performs inverse discrete wavelet transform (**idwtr.m**) to reconstruct the signal from wavelet coefficients.
+
+8. **Performance Evaluation:** evaluates the performance of the SCOPE shrinkage rule under multiple benchmark signals, signal-to-noise ratios, and distributional prototypes, and compares it against several classical wavelet shrinkage methods(**SCOPE_Final.m**).
+
+
+
