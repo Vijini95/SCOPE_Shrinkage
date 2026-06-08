@@ -36,19 +36,20 @@ The SCOPE framework defines a parametric family of wavelet shrinkage rules based
 ## MATLAB Implementation
 The following steps describe the MATLAB implementation of the SCOPE wavelet shrinkage framework.
 
-1. **Signal Generation:** Test signals (Blocks, Bumps, HeaviSine, Doppler) are generated using **WaveLab850** via **MakeSignal**. Noise is added to achieve a desired signal-to-noise ratio (SNR).
+1. **Signal Generation:** Test signals (Blocks, Bumps, HeaviSine, Doppler) are generated using **WaveLab850** via **MakeSignal**. Gaussian noise is added to achieve a desired signal-to-noise ratio (SNR).
    
-3. **Wavelet Decomposition:** Each signal is decomposed using a discrete wavelet transform (**dwtr.m**) into multiple resolution levels. The decomposition coefficients are then processed for thresholding.
+2. **Wavelet Decomposition:** Each signal is decomposed using a discrete wavelet transform (**dwtr.m**) into multiple resolution levels. The resulting wavelet coefficients are used for shrinkage.
 
-4. **Oracle parameter calibration:** Computes Monte Carlo average MSE for SCOPE shrinkage under a given ($\lambda$, k), used for oracle calibration in simulations.(**objRuleMSE.m**).
+3. **CDF engine:** The cumulative distribution function (CDF) of a selected prototype distribution is evaluated using **myCDF.m**. This is used to construct the centered CDF which defines the SCOPE shrinkage rule.
 
-5. **Machine Learning Classification:** Applies the SCOPE shrinkage rule to input coefficients using a centered CDF prototype with parameters ($\lambda$, k) (**ScopeRule.m**).
+4. **SCOPE shrinkage rule:** Applies the SCOPE shrinkage rule to wavelet coefficients using **ScopeRule.m**.
 
-6. **CDF engine:** Evaluates the CDF of a selected distribution, used to construct the centered CDF in the SCOPE shrinkage rule (**myCDF**).
+5. **Oracle parameter calibration:** Computes Monte Carlo average MSE for SCOPE shrinkage under a given ($\lambda$, k) using **objRuleMSE.m**, enabling oracle calibration in simulation studies.
 
-7. **Signal Reconstruction:** Performs inverse discrete wavelet transform (**idwtr.m**) to reconstruct the signal from wavelet coefficients.
+6. **Signal Reconstruction:** Performs inverse discrete wavelet transform (**idwtr.m**) to reconstruct the denoised signal from processed coefficients.
 
-8. **Performance Evaluation:** evaluates the performance of the SCOPE shrinkage rule under multiple benchmark signals, signal-to-noise ratios, and distributional prototypes, and compares it against several classical wavelet shrinkage methods(**SCOPE_Final.m**).
+7. **Performance Evaluation:** Evaluates the performance of the SCOPE shrinkage rule under multiple benchmark signals, signal-to-noise ratios, and distributional prototypes, and compares it against several classical wavelet shrinkage methods (**SCOPE_Final.m**).
 
+8. **Data-driven parameter selection:** Computes the SURE risk estimate for SCOPE shrinkage, enabling data-driven selection of ($\lambda$, k) (**objRuleSURE**).
 
-
+9. **Stein’s Unbiased Risk Estimate:** Example script demonstrating SURE-based tuning of SCOPE parameters ($\lambda$, k) and reconstruction of a noisy benchmark signal (**ScopeSURE**).
