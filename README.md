@@ -53,3 +53,13 @@ The following steps describe the MATLAB implementation of the SCOPE wavelet shri
 8. **Data-driven parameter selection:** Computes the SURE risk estimate for SCOPE shrinkage, enabling data-driven selection of ($\lambda$, k) (**objRuleSURE**).
 
 9. **Stein’s Unbiased Risk Estimate:** Example script demonstrating SURE-based tuning of SCOPE parameters ($\lambda$, k) and reconstruction of a noisy benchmark signal (**ScopeSURE**).
+
+## Outcomes
+
+1. The proposed **SCOPE** framework demonstrates competitive and often superior denoising performance across multiple benchmark signals and noise levels.
+
+2. Compared to classical wavelet shrinkage methods, SCOPE achieves lower Average Mean Squared Error (AMSE) through flexible parametric control of shrinkage behavior using centered CDF prototypes.
+
+3. The SURE-based tuning strategy enables effective data-driven parameter selection without requiring knowledge of the true signal.
+
+4. Different distributional prototypes (logistic, normal, Laplace, Cauchy, uniform, and Hyperbolic Secant) provide adaptable shrinkage profiles, allowing SCOPE to balance smoothness and edge preservation across diverse signal structures.
